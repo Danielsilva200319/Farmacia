@@ -154,3 +154,34 @@ ALTER TABLE movimientoInventario
 ADD idFormaPago INT(11);
 ALTER TABLE movimientoInventario
 ADD FOREIGN KEY (idFormaPago) REFERENCES formaPago(id);
+
+DML
+INSERT (CREAR NUEVOS REGISTROS)
+INSERT INTO [TABLA](C1,C2,TC...) VALUES ();
+VC -> ''
+FECHA -> ''
+NUMERICOS -> 4345
+pais
+INSERT INTO pais(nombre) VALUES ('Colombia');
+DELETE
+UPDATE
+
+DQL
+SELECT id, nombre
+FROM pais;
+ALTER TABLE pais ADD UNIQUE(nombre);
+
+INSERT INTO departamento(nombre, idpaisFk) VALUES ('Santander', 1),('Amazonas', 1),('Antioquia', 1),('Arauca', 1),('Atlantico', 1),('Guainia', 1),
+('Cundinamarca', 1),('Boyaca', 1),('Bolivar', 1),('Caldas', 1),('Caqueta', 1),('Casanare', 1),('Cauca', 1),('Cesar', 1),('Choco', 1),
+('Cordoba', 1),('Guaviare',1),('Huila', 1),('La Guajira', 1),('Magdalena', 1),('Meta', 1),('Nariño', 1),('Putumayo', 1),('Quindio', 1),
+('Risaralda', 1),('San Andres Y Providencia', 1),('Sucre', 1),('Tolima', 1),('Valle del Cauca', 1),('Vaupes', 1),('Vichada', 1),('Cundinamarca', 1);
+
+INSERT INTO ciudad(nombre, iddepartamentoFk) VALUES ('Bucaramanga', 1),('Piedecuesta', 1),('Floridablanca', 1);
+SELECT C1,C2,C3...
+FROM TABLA
+INNER JOIN TBL1 ON PK = FK
+
+SELECT p.id, p.nombre As NombrePais, d.nombre As NombreDep
+FROM pais AS p
+JOIN departamento AS d ON p.id = d.idpaisFk
+JOIN ciudad AS c ON d.id = c.iddepartamentoFk;
