@@ -176,12 +176,37 @@ INSERT INTO departamento(nombre, idpaisFk) VALUES ('Santander', 1),('Amazonas', 
 ('Cordoba', 1),('Guaviare',1),('Huila', 1),('La Guajira', 1),('Magdalena', 1),('Meta', 1),('Nariño', 1),('Putumayo', 1),('Quindio', 1),
 ('Risaralda', 1),('San Andres Y Providencia', 1),('Sucre', 1),('Tolima', 1),('Valle del Cauca', 1),('Vaupes', 1),('Vichada', 1),('Cundinamarca', 1);
 
-INSERT INTO ciudad(nombre, iddepartamentoFk) VALUES ('Bucaramanga', 1),('Piedecuesta', 1),('Floridablanca', 1);
+INSERT INTO ciudad(nombre, iddepartamentoFk) VALUES ('Bucaramanga', 64),('Piedecuesta', 64),('Floridablanca', 64);
 SELECT C1,C2,C3...
 FROM TABLA
 INNER JOIN TBL1 ON PK = FK
 
-SELECT p.id, p.nombre As NombrePais, d.nombre As NombreDep
+SELECT p.id, p.nombre As NombrePais, d.nombre As NombreDep, c.nombre AS NombreCiud
 FROM pais AS p
 JOIN departamento AS d ON p.id = d.idpaisFk
 JOIN ciudad AS c ON d.id = c.iddepartamentoFk;
+ORDER BY p.id DESC
+
+CLAUSULAS
+- WHERE -> CONDICIONES DE CONSULTA
+OPERADORES COMPARACIÓN
+=, <, >, >=, <=, <>
+OPERADORES DE PATRON
+like '%xxxx%'
+     '%xxxx'
+     'xxxx%'
+SELECT p.id, p.nombre As NombrePais, id.nombre As NombreDep, c.nombre AS NombreCiud
+FROM pais AS p
+JOIN departamento AS d ON p.id = d.idpaisFk
+JOIN ciudad AS c ON d.id = c.iddepartamentoFk
+WHERE c.nombre LIKE '%MANGA';
+
+UPDATE 
+UPDATE {TBL} SET C=V WHERE CONDICIÓN
+INSERT INTO pais(nombre) VALUES ('Venezuela');
+INSERT INTO pais(nombre) VALUES ('Bracil');
+UPDATE pais SET nombre = 'Brasil' WHERE id = 3;
+
+DELETE
+DELETE FROM TBL WHERE CONDICIÓN
+DELETE FROM pais WHERE id = 3;
